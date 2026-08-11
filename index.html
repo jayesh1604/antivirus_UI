@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#07111f" />
+  <title>XSAV Shield — Antivirus Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">X</div>
+        <div>
+          <div class="brand-name">XSAV<span>Shield</span></div>
+          <div class="brand-sub">Endpoint Security</div>
+        </div>
+      </div>
+
+      <div class="side-status">
+        <span class="pulse"></span>
+        <span>Protection active</span>
+      </div>
+
+      <nav class="nav">
+        <button class="nav-item active" data-page="dashboard"><span>⌂</span> Dashboard</button>
+
+        <div class="nav-group-label">Protection</div>
+        <button class="nav-item" data-page="scan"><span>⌕</span> Scan</button>
+        <button class="nav-item" data-page="threats"><span>◈</span> Threats</button>
+        <button class="nav-item" data-page="protection"><span>◉</span> Protection</button>
+
+        <div class="nav-group-label">System</div>
+        <button class="nav-item" data-page="updates"><span>↻</span> Updates</button>
+        <button class="nav-item" data-page="reports"><span>▥</span> Reports</button>
+        <button class="nav-item" data-page="settings"><span>⚙</span> Settings</button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="engine-card">
+          <div class="mini-label">SECURITY ENGINE</div>
+          <strong>v4.8.2</strong>
+          <span>Database current</span>
+        </div>
+        <div class="sidebar-footer-text">© 2026 XSAV Shield</div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu">☰</button>
+        <div>
+          <div class="eyebrow">ENDPOINT SECURITY PLATFORM</div>
+          <h1 id="pageTitle">Security Dashboard</h1>
+        </div>
+        <div class="top-actions">
+          <div class="live-pill"><span class="pulse"></span> Live protection</div>
+          <button class="icon-btn" id="notificationBtn" title="Notifications">♢<span class="notif-dot"></span></button>
+          <div class="avatar">JT</div>
+        </div>
+      </header>
+
+      <div class="page-wrap">
+
+        <!-- DASHBOARD -->
+        <section class="page active" id="dashboard">
+          <div class="hero-grid">
+            <div class="security-hero">
+              <div class="hero-copy">
+                <div class="status-kicker"><span class="status-dot"></span> DEVICE SECURE</div>
+                <h2>Your digital environment is protected.</h2>
+                <p>XSAV Shield is monitoring files, processes and system activity in real time.</p>
+                <div class="hero-actions">
+                  <button class="btn primary" data-page-link="scan">Run a scan <span>→</span></button>
+                  <button class="btn ghost" data-page-link="protection">Protection settings</button>
+                </div>
+              </div>
+              <div class="score-ring" style="--score: 92;">
+                <div class="score-inner">
+                  <strong>92</strong>
+                  <span>Security<br>score</span>
+                </div>
+              </div>
+              <div class="grid-glow"></div>
+            </div>
+
+            <div class="metric-card">
+              <div class="card-top"><span>Threats blocked</span><span class="metric-icon">◈</span></div>
+              <div class="metric-value">2,847</div>
+              <div class="metric-meta positive">↑ 18.4% <span>this month</span></div>
+              <div class="sparkline"><i style="height:22%"></i><i style="height:38%"></i><i style="height:31%"></i><i style="height:52%"></i><i style="height:45%"></i><i style="height:66%"></i><i style="height:59%"></i><i style="height:84%"></i><i style="height:72%"></i><i style="height:91%"></i></div>
+            </div>
+          </div>
+
+          <div class="section-heading">
+            <div>
+              <div class="eyebrow">SECURITY OVERVIEW</div>
+              <h3>Protection status</h3>
+            </div>
+            <span class="last-sync">Last checked just now</span>
+          </div>
+
+          <div class="status-grid">
+            <div class="status-card">
+              <div class="status-card-icon blue">◉</div>
+              <div><span>Real-time protection</span><strong class="toggle-state">Active</strong></div>
+              <label class="switch"><input type="checkbox" checked data-toggle="Real-time protection"><span></span></label>
+            </div>
+            <div class="status-card">
+              <div class="status-card-icon cyan">⌁</div>
+              <div><span>Behavior monitoring</span><strong class="toggle-state">Active</strong></div>
+              <label class="switch"><input type="checkbox" checked data-toggle="Behavior monitoring"><span></span></label>
+            </div>
+            <div class="status-card">
+              <div class="status-card-icon violet">⌁</div>
+              <div><span>Web protection</span><strong class="toggle-state">Active</strong></div>
+              <label class="switch"><input type="checkbox" checked data-toggle="Web protection"><span></span></label>
+            </div>
+            <div class="status-card">
+              <div class="status-card-icon green">▣</div>
+              <div><span>Security database</span><strong class="toggle-state">Up to date</strong></div>
+              <span class="checkmark">✓</span>
+            </div>
+          </div>
+
+          <div class="dashboard-bottom">
+            <div class="panel">
+              <div class="panel-head"><div><div class="eyebrow">ACTIVITY</div><h3>Recent security events</h3></div><button class="text-btn" data-page-link="reports">View all →</button></div>
+              <div class="event-list" id="eventList">
+                <div class="event"><span class="event-icon safe">✓</span><div><strong>Scan completed</strong><span>Quick scan completed — no threats found</span></div><time>12m ago</time></div>
+                <div class="event"><span class="event-icon blocked">!</span><div><strong>Threat blocked</strong><span>Suspicious PowerShell behavior prevented</span></div><time>2h ago</time></div>
+                <div class="event"><span class="event-icon update">↻</span><div><strong>Engine updated</strong><span>Security intelligence updated successfully</span></div><time>5h ago</time></div>
+              </div>
+            </div>
+            <div class="panel quick-panel">
+              <div class="eyebrow">QUICK ACTIONS</div>
+              <h3>Protect your device</h3>
+              <div class="quick-actions">
+                <button class="quick-btn" data-page-link="scan"><span>⌕</span><div><strong>Quick scan</strong><small>Check critical locations</small></div><b>→</b></button>
+                <button class="quick-btn" data-page-link="scan"><span>▣</span><div><strong>Custom scan</strong><small>Choose files or folders</small></div><b>→</b></button>
+                <button class="quick-btn" data-page-link="updates"><span>↻</span><div><strong>Check updates</strong><small>Refresh threat intelligence</small></div><b>→</b></button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SCAN -->
+        <section class="page" id="scan">
+          <div class="section-heading"><div><div class="eyebrow">MALWARE SCANNING</div><h3>Scan your device</h3><p class="subtext">Choose a scan depth based on what you need to verify.</p></div></div>
+          <div class="scan-layout">
+            <div class="scan-card-main">
+              <div class="scan-orb" id="scanOrb"><div class="orb-core">⌁</div></div>
+              <div class="scan-status" id="scanStatus">Ready to scan</div>
+              <p id="scanDetail">Your system is protected. Start a scan to inspect files and processes.</p>
+              <div class="progress-wrap hidden" id="progressWrap"><div class="progress-bar"><span id="progressBar"></span></div><div class="progress-meta"><span id="progressLabel">0%</span><span id="filesLabel">0 files scanned</span></div></div>
+              <div class="scan-actions">
+                <button class="btn primary" id="quickScan">Quick Scan</button>
+                <button class="btn ghost" id="fullScan">Full Scan</button>
+                <label class="btn ghost file-btn">Custom Scan <input type="file" id="customFile" multiple hidden></label>
+              </div>
+            </div>
+            <div class="scan-types">
+              <div class="mini-scan selected"><span>⌁</span><div><strong>Quick Scan</strong><small>Memory, startup items & common malware locations</small></div><b>~ 2 min</b></div>
+              <div class="mini-scan"><span>▤</span><div><strong>Full Scan</strong><small>Deep inspection of your entire device</small></div><b>~ 25 min</b></div>
+              <div class="mini-scan"><span>□</span><div><strong>Custom Scan</strong><small>Scan selected files, folders or removable media</small></div><b>Flexible</b></div>
+              <div class="scan-note"><strong>Tip</strong><span>Run a full scan after a suspicious download or unexpected system behavior.</span></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- THREATS -->
+        <section class="page" id="threats">
+          <div class="section-heading"><div><div class="eyebrow">THREAT MANAGEMENT</div><h3>Threats & quarantine</h3><p class="subtext">Review detections and isolated objects.</p></div><button class="btn ghost small" id="clearThreats">Clear history</button></div>
+          <div class="threat-summary">
+            <div><span class="threat-number danger">2</span><div><strong>Threats detected</strong><small>Last 30 days</small></div></div>
+            <div><span class="threat-number safe-number">2</span><div><strong>Threats neutralized</strong><small>100% remediation</small></div></div>
+            <div><span class="threat-number">0</span><div><strong>Active threats</strong><small>System is clean</small></div></div>
+          </div>
+          <div class="panel table-panel">
+            <div class="panel-head"><div><div class="eyebrow">DETECTION LOG</div><h3>Detected threats</h3></div><div class="table-filter">All detections ▾</div></div>
+            <div class="table-wrap"><table id="threatTable"><thead><tr><th>Threat</th><th>Location</th><th>Severity</th><th>Detection</th><th>Status</th><th></th></tr></thead><tbody>
+              <tr><td><strong>Trojan.GenericKD</strong><small>Executable</small></td><td>C:\Users\Downloads\setup.exe</td><td><span class="severity high">HIGH</span></td><td>Heuristic</td><td><span class="badge green-badge">Quarantined</span></td><td><button class="row-btn">•••</button></td></tr>
+              <tr><td><strong>PUA.Toolbar</strong><small>Potentially unwanted</small></td><td>C:\Temp\browser_tool.exe</td><td><span class="severity medium">MEDIUM</span></td><td>Signature</td><td><span class="badge green-badge">Removed</span></td><td><button class="row-btn">•••</button></td></tr>
+            </tbody></table></div>
+          </div>
+        </section>
+
+        <!-- PROTECTION -->
+        <section class="page" id="protection">
+          <div class="section-heading"><div><div class="eyebrow">DEFENSE CONTROLS</div><h3>Protection center</h3><p class="subtext">Control the security layers protecting this endpoint.</p></div></div>
+          <div class="protection-grid">
+            <div class="control-card"><div class="control-icon">◉</div><div><h4>Real-Time Protection</h4><p>Continuously checks files as they are created, opened or modified.</p></div><label class="switch large"><input type="checkbox" checked data-toggle="Real-time protection"><span></span></label></div>
+            <div class="control-card"><div class="control-icon">⌁</div><div><h4>Behavior Monitoring</h4><p>Detects suspicious process activity that may indicate unknown malware.</p></div><label class="switch large"><input type="checkbox" checked data-toggle="Behavior monitoring"><span></span></label></div>
+            <div class="control-card"><div class="control-icon">◎</div><div><h4>Web Protection</h4><p>Blocks malicious domains, downloads and known phishing destinations.</p></div><label class="switch large"><input type="checkbox" checked data-toggle="Web protection"><span></span></label></div>
+            <div class="control-card"><div class="control-icon">▣</div><div><h4>Ransomware Protection</h4><p>Monitors protected folders for suspicious mass file modification.</p></div><label class="switch large"><input type="checkbox" checked data-toggle="Ransomware protection"><span></span></label></div>
+            <div class="control-card"><div class="control-icon">USB</div><div><h4>Removable Media Scan</h4><p>Automatically scans USB and removable drives when connected.</p></div><label class="switch large"><input type="checkbox" checked data-toggle="USB protection"><span></span></label></div>
+            <div class="control-card"><div class="control-icon">✉</div><div><h4>Email Protection</h4><p>Inspects email attachments for known malicious content.</p></div><label class="switch large"><input type="checkbox" data-toggle="Email protection"><span></span></label></div>
+          </div>
+        </section>
+
+        <!-- UPDATES -->
+        <section class="page" id="updates">
+          <div class="section-heading"><div><div class="eyebrow">THREAT INTELLIGENCE</div><h3>Updates</h3><p class="subtext">Keep your detection engine and intelligence current.</p></div><button class="btn primary" id="updateNow">Check for updates</button></div>
+          <div class="update-hero">
+            <div class="update-icon">↻</div>
+            <div><div class="eyebrow">SECURITY INTELLIGENCE</div><h3>Everything is up to date</h3><p>Latest signatures and detection rules are installed.</p></div>
+            <span class="badge green-badge">CURRENT</span>
+          </div>
+          <div class="update-grid">
+            <div class="info-card"><span>Security database</span><strong>2026.08.10</strong><small>Updated today at 17:30</small></div>
+            <div class="info-card"><span>Scan engine</span><strong>v4.8.2</strong><small>Latest stable engine</small></div>
+            <div class="info-card"><span>Detection rules</span><strong>18,492</strong><small>Active rules</small></div>
+          </div>
+        </section>
+
+        <!-- REPORTS -->
+        <section class="page" id="reports">
+          <div class="section-heading"><div><div class="eyebrow">SECURITY ANALYTICS</div><h3>Reports</h3><p class="subtext">A compact view of your endpoint security activity.</p></div><button class="btn ghost small" id="exportReport">Export report</button></div>
+          <div class="report-grid">
+            <div class="panel chart-panel"><div class="panel-head"><div><div class="eyebrow">30 DAYS</div><h3>Threat activity</h3></div><span class="chart-legend">● Blocked &nbsp; ● Detected</span></div><div class="bar-chart" id="barChart"></div><div class="chart-axis"><span>W1</span><span>W2</span><span>W3</span><span>W4</span></div></div>
+            <div class="panel"><div class="eyebrow">SCAN PERFORMANCE</div><h3>Recent scans</h3><div class="scan-history"><div><span>Quick scan</span><strong>12,450 files</strong><small>Today · Clean</small></div><div><span>Full scan</span><strong>184,920 files</strong><small>Aug 08 · Clean</small></div><div><span>USB scan</span><strong>1,245 files</strong><small>Aug 07 · 1 threat</small></div></div></div>
+          </div>
+        </section>
+
+        <!-- SETTINGS -->
+        <section class="page" id="settings">
+          <div class="section-heading"><div><div class="eyebrow">CONFIGURATION</div><h3>Settings</h3><p class="subtext">Tune the endpoint security experience.</p></div></div>
+          <div class="settings-grid">
+            <div class="settings-nav"><button class="setting-tab active">General</button><button class="setting-tab">Scan</button><button class="setting-tab">Exclusions</button><button class="setting-tab">Notifications</button></div>
+            <div class="panel settings-panel"><div class="setting-row"><div><strong>Start with system</strong><small>Launch XSAV Shield when Windows starts.</small></div><label class="switch"><input type="checkbox" checked data-toggle="Start with system"><span></span></label></div><div class="setting-row"><div><strong>Scan compressed archives</strong><small>Inspect ZIP, RAR and other supported archives.</small></div><label class="switch"><input type="checkbox" checked data-toggle="Archive scanning"><span></span></label></div><div class="setting-row"><div><strong>Scan removable drives</strong><small>Automatically scan USB storage on connection.</small></div><label class="switch"><input type="checkbox" checked data-toggle="Removable drive scanning"><span></span></label></div><div class="setting-row"><div><strong>Cloud reputation</strong><small>Use cloud intelligence for file reputation checks.</small></div><label class="switch"><input type="checkbox" checked data-toggle="Cloud reputation"><span></span></label></div><div class="setting-row"><div><strong>Security notifications</strong><small>Show alerts when threats or important changes occur.</small></div><label class="switch"><input type="checkbox" checked data-toggle="Security notifications"><span></span></label></div></div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast" id="toast"><span>✓</span><div><strong id="toastTitle">Done</strong><small id="toastText">Action completed.</small></div></div>
+  <div class="modal hidden" id="notificationModal"><div class="modal-card"><button class="modal-close" id="closeModal">×</button><div class="eyebrow">NOTIFICATIONS</div><h3>Security activity</h3><div class="modal-event"><span class="event-icon blocked">!</span><div><strong>Suspicious process blocked</strong><small>PowerShell behavior was prevented 2 hours ago.</small></div></div><div class="modal-event"><span class="event-icon update">↻</span><div><strong>Intelligence updated</strong><small>Latest security signatures are installed.</small></div></div></div></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
